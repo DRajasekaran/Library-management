@@ -1,0 +1,24 @@
+# netlify.toml
+
+# Redirects for handling client-side routing
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Specify your build settings and publish directory
+[build]
+  command = "npm run build"  # Adjust the build command as per your project
+  publish = "build"  # Adjust the build output directory
+
+# Optional: Environment variables
+[build.environment]
+  # Set environment variables that your application may require
+  REACT_APP_API_URL = "https://api.example.com"
+
+# Optional: Custom headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # Add any custom headers you need
+    X-Frame-Options = "DENY"
